@@ -238,7 +238,7 @@ The `pom.xml` is the core configuration file of the maven project. It contains t
 
 There are three built-in build lifecycles: `default`, `clean` and `site`. The `default` lifecycle handles your project deployment, the `clean` lifecycle handles project cleaning, while the `site` lifecycle handles the creation of your project's site documentation. 
 
-Each of these build lifecycles is defined by a different list of build phases, where in a build phase represents a stage in the lifecycle. The below table lists the phases of the lifecycle:
+Each of these build lifecycles is defined by a different list of build phases, where in a build phase represents a stage in the lifecycle. The below table lists the phases of the `default` lifecycle:
 
 | Phase    | Description                                                  |
 | -------- | ------------------------------------------------------------ |
@@ -250,3 +250,18 @@ Each of these build lifecycles is defined by a different list of build phases, w
 | install  | Install the package into the local repository for use as a dependency by other projects. |
 | deploy   | Install the final package into the remote repository for sharing with other projects. |
 
+Run the below command as same as the `mvn package` command.
+
+```bash
+mvn verify
+```
+
+Each phase of the `default` lifecycle runs sequentially. The command runs `validate`, `compile`, `test` and `package` phases in order before running the `verify` phase.
+
+```bash
+mvn clean package
+```
+
+Maven traverses every subproject and run `clean` phase, then runs the `package` phase (including all of the prior phases).
+
+> https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
