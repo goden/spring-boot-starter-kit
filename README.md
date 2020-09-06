@@ -5,9 +5,9 @@ A spring-boot project about learning spring-related skills.
   - Install and setup Maven.
   - Maven repositories.
 - Run maven command to create project.
-  - Create java SE project by maven-archetype-quickstart template.
-  - Create java web project by maven-archetype-webapp template.
-  - Lifecycle of Maven.
+  - Create java SE project by template.
+  - Create java web project by template.
+  - Lifecycles.
 - Eclipse and Maven
   - Maven in Eclipse
   - Create java SE project by maven in Eclipse.
