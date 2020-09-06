@@ -233,3 +233,20 @@ The `pom.xml` is the core configuration file of the maven project. It contains t
   </build>
 </project>
 ```
+
+## LifeCycles
+
+There are three built-in build lifecycles: `default`, `clean` and `site`. The `default` lifecycle handles your project deployment, the `clean` lifecycle handles project cleaning, while the `site` lifecycle handles the creation of your project's site documentation. 
+
+Each of these build lifecycles is defined by a different list of build phases, where in a build phase represents a stage in the lifecycle. The below table lists the phases of the lifecycle:
+
+| Phase    | Description                                                  |
+| -------- | ------------------------------------------------------------ |
+| validate | Verify the project is correct and the required information is available. |
+| compile  | Compile the source code.                                     |
+| test     | Test the compiled source code using the unit test framework. |
+| package  | Package the compiled source code into the distributed format, such as jar or war. |
+| verify   | Run the integration tests to ensure the quality criteria.    |
+| install  | Install the package into the local repository for use as a dependency by other projects. |
+| deploy   | Install the final package into the remote repository for sharing with other projects. |
+
