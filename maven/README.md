@@ -265,3 +265,64 @@ mvn clean package
 Maven traverses every subproject and run `clean` phase, then runs the `package` phase (including all of the prior phases).
 
 > https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
+
+## Eclipse and Maven
+
+### Maven in Eclipse
+
+Maven has been built-in plugin in Eclipse. Assume the `MAVEN_HOME` is `/opt/apache-maven-3.6.3`, the settings should be configured in the **Preferences** of the Eclipse.
+
+Add the `/opt/apache-maven-3.6.3` as the new installation.
+
+<img src="../pic/mvn-01.png" alt="" height="400">
+
+Update the User Settings to `/opt/apache-maven-3.6.3/conf/settings.xml`.
+
+<img src="../pic/mvn-02.png" alt="" height="400">
+
+### Create a Java Project in Eclipse
+
+Follow the below step to create a java project in Eclipse
+
+1. Select the **New** > **Project...** by right-clicking the empty space in the **Project Explorer** to launch the **New Project** wizard.
+
+2. Select the **Maven Project** and then click **Next** to the next step.
+   <img src="../pic/mvn-03.png" alt="" height="400">
+
+3. Enter the location and click the **Next** to the next step.
+   <img src="../pic/mvn-04.png" alt="" height="400">
+
+4. Select the template to create the project. **maven-archetype-quickstart** is the option and click **Next** to the next step.
+   <img src="../pic/mvn-05.png" alt="" height="400">
+
+5. Enter the required data. Add the new property as `project.build.sourceEncoding` and set it as `UTF-8`. Click the **Finish** to create a project.
+   <img src="../pic/mvn-06.png" alt="" height="400">
+
+6. This results in the compile error due to the JDK 1.5 is the default JDK. Assign the JDK 1.8 instead of JDK 1.5. Add the `maven-compiler-plugin` tag and set the value as `1.8` in pom.xml. 
+
+   ```xml
+   <build>
+    	<finalName>MyJavaTest</finalName>
+    	<plugins>
+    		<plugin>
+    			<groupId>org.apache.maven.plugins</groupId>
+    			<artifactId>maven-compiler-plugin</artifactId>
+    			<version>3.2</version>
+    			<configuration>
+    				<source>1.8</source>
+    				<target>1.8</target>
+    			</configuration>
+    		</plugin>
+    	</plugins>
+    </build>
+   ```
+
+7. In order to take the setting effect, right-click the project and select the **Maven** > **Update Proejct...** to open the **Update Maven Project** window. 
+   <img src="../pic/mvn-07.png" alt="" height="300">
+
+8. Select the target project to update and set the **Force Update of Snapshots/Releases** option checked. Click **OK** to initial the update.
+   <img src="../pic/mvn-08.png" alt="" height="460">
+
+9. After the update the project, the SDK version will be updated.
+
+ 
