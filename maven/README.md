@@ -293,6 +293,7 @@ Follow the below step to create a java project in Eclipse
 4. Select the template to create the project. **maven-archetype-quickstart** is the option and click **Next** to the next step.
    <img src="../pic/mvn-05.png" alt="" height="400">
 
+   
 5. Enter the required data. Add the new property as `project.build.sourceEncoding` and set it as `UTF-8`. Click the **Finish** to create a project.
    <img src="../pic/mvn-06.png" alt="" height="400">
 
