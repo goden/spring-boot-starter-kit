@@ -287,14 +287,13 @@ Follow the below step to create a java project in Eclipse
 2. Select the **Maven Project** and then click **Next** to the next step.<br/>
    <img src="../pic/mvn-03.png" alt="" height="400">
 
-   
-3. Enter the location and click the **Next** to the next step.
+3. Enter the location and click the **Next** to the next step.<br/>
    <img src="../pic/mvn-04.png" alt="" height="400">
 
-4. Select the template to create the project. **maven-archetype-quickstart** is the option and click **Next** to the next step.
+4. Select the template to create the project. **maven-archetype-quickstart** is the option and click **Next** to the next step.<br/>
    <img src="../pic/mvn-05.png" alt="" height="400">
 
-5. Enter the required data. Add the new property as `project.build.sourceEncoding` and set it as `UTF-8`. Click the **Finish** to create a project.
+5. Enter the required data. Add the new property as `project.build.sourceEncoding` and set it as `UTF-8`. Click the **Finish** to create a project.<br/>
    <img src="../pic/mvn-06.png" alt="" height="400">
 
 6. This results in the compile error due to the JDK 1.5 is the default JDK. Assign the JDK 1.8 instead of JDK 1.5. Add the `maven-compiler-plugin` tag and set the value as `1.8` in pom.xml. 
