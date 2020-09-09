@@ -270,13 +270,13 @@ Maven traverses every subproject and run `clean` phase, then runs the `package` 
 
 ### Maven in Eclipse
 
-Maven has been built-in plugin in Eclipse. Assume the `MAVEN_HOME` is `/opt/apache-maven-3.6.3`, the settings should be configured in the **Preferences** of the Eclipse.
+Maven has been built-in plugin in Eclipse. Assume the `MAVEN_HOME` is `/opt/apache-maven-3.6.3`, the settings should be configured in the **Preferences** of the Eclipse. Follow below steps to resolve the comipler error:
 
-Add the `/opt/apache-maven-3.6.3` as the new installation.
-<img src="../pic/mvn-01.png" alt="" height="400">
+- Add the `/opt/apache-maven-3.6.3` as the new installation.
+  <img src="../pic/mvn-01.png" alt="" height="400">
 
-Update the User Settings to `/opt/apache-maven-3.6.3/conf/settings.xml`.
-<img src="../pic/mvn-02.png" alt="" height="400">
+- Update the User Settings to `/opt/apache-maven-3.6.3/conf/settings.xml`.
+  <img src="../pic/mvn-02.png" alt="" height="400">
 
 ### Create a Java Project in Eclipse
 
