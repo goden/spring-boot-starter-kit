@@ -315,7 +315,7 @@ Follow the below step to create a java project in Eclipse
     </build>
    ```
 
-7. In order to take the setting effect, right-click the project and select the **Maven** > **Update Proejct...** to open the **Update Maven Project** window. 
+7. In order to take the setting effect, right-click the project and select the **Maven** > **Update Proejct...** to open the **Update Maven Project** window. <br/>
    <img src="../pic/mvn-07.png" alt="" height="300">
 
 8. Select the target project to update and set the **Force Update of Snapshots/Releases** option checked. Click **OK** to initial the update.
