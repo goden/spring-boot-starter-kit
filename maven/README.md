@@ -284,9 +284,10 @@ Follow the below step to create a java project in Eclipse
 
 1. Select the **New** > **Project...** by right-clicking the empty space in the **Project Explorer** to launch the **New Project** wizard.
 
-2. Select the **Maven Project** and then click **Next** to the next step.
+2. Select the **Maven Project** and then click **Next** to the next step.<br/>
    <img src="../pic/mvn-03.png" alt="" height="400">
 
+   
 3. Enter the location and click the **Next** to the next step.
    <img src="../pic/mvn-04.png" alt="" height="400">
 
