@@ -456,7 +456,7 @@ public class AppTest {
 }
 ```
 
-Select **Run As** > **Maven Build...** to open the configuration window by right-clicking the project. Enter the clean package as the Goals and click Run to launch the entire process.<br/>
+Select **Run As** > **Maven Build...** to open the configuration window by right-clicking the project. Enter the `clean package` as the **Goals** and click **Run** to launch the entire process.<br/>
 <img src="../pic/mvn-09.png" alt="" height="460">
 
 Maven will print out the building message in the console, including the result of executing unit test.
