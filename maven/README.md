@@ -321,6 +321,155 @@ Follow the below step to create a java project in Eclipse
 8. Select the target project to update and set the **Force Update of Snapshots/Releases** option checked. Click **OK** to initial the update.
    <img src="../pic/mvn-08.png" alt="" height="460">
 
-9. After the update the project, the SDK version will be updated.
+9. After the update the project, the SDK version should be updated.
 
- 
+#### Create Unit Test and Package
+
+The default JUnit version is 3.x.x and should be upgrade to JUnit 4.x to use annotations. The pom.xml contains the JUnit as below:
+
+```xml
+<dependency>
+   <groupId>junit</groupId>
+   <artifactId>junit</artifactId>
+   <version>3.8.1</version> <!-- Upgrade to 4.x -->
+   <scope>test</scope>
+</dependency>
+```
+
+ After upgrading the version to 4.x, remember to click the **update project** to drive maven to upgrade the JUnit version.
+
+```xml
+<dependency>
+   <groupId>junit</groupId>
+   <artifactId>junit</artifactId>
+   <version>4.x</version> <!-- JUnit has been upgraded -->
+   <scope>test</scope>
+</dependency>
+```
+
+Let's create the Java code to verify whether Maven drive the JUnit works.
+
+- `MyCalculator.java`
+
+```java
+package com.demo.MyJavaTest;
+
+public interface MyCalculator {
+	int sum(int a, int b);
+	int subtract(int a, int b);
+	int multiply(int a, int b);
+	int divide(int a, int b) throws Exception;
+	boolean floatEquals(float a, float b);
+}
+```
+
+- `Calculator.java`
+
+```java
+package com.demo.MyJavaTest;
+
+public class Calculator implements MyCalculator {
+
+	@Override
+	public int sum(int a, int b) {
+		return a + b;
+	}
+
+	@Override
+	public int subtract(int a, int b) {
+		return a - b;
+	}
+
+	@Override
+	public int multiply(int a, int b) {
+		return a * b;
+	}
+
+	@Override
+	public int divide(int a, int b) throws Exception {
+		return a/b;
+	}
+
+	@Override
+	public boolean floatEquals(float a, float b) {
+		return a == b;
+	}
+
+}
+
+```
+
+- `CalculatorTest.java`
+
+```java
+package com.goden.MyJavaTest;
+
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Ignore;
+import org.junit.Test;
+
+public class AppTest {
+	
+	private static MyCalculator calculator;
+
+	@Before
+	public void setUp() throws Exception {
+		calculator = new Calculator();
+	}
+
+	@After
+	public void tearDown() throws Exception {
+	}
+
+	@Test
+	public void testSum() {
+		int result = calculator.sum(6, 4);
+		assertEquals(10, result);
+	}
+	
+	@Test
+	public void testSubstract() {
+		int result = calculator.subtract(6, 3);
+		assertTrue(result == 3);
+	}
+	
+	@Test
+	public void testMultiply() {
+		int result = calculator.multiply(2, 4);
+		assertTrue(result == 8);
+	}
+	
+	@Test(expected = ArithmeticException.class)
+	public void testDivide() throws Exception{
+		calculator.divide(10, 0);
+	}
+	
+	@Ignore
+	@Test
+	public void testFloatEquals() {
+		boolean result = calculator.floatEquals(0.6f, 0.2f);
+		assertFalse(result);
+	}
+}
+```
+
+Select **Run As** > **Maven Build...** to open the configuration window by right-clicking the project. Enter the clean package as the Goals and click Run to launch the entire process.
+<img src="../pic/mvn-09.png" alt="" height="460">
+
+Maven will print out the building message in the console, including the result of executing unit test.
+
+```bash
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.demo.MyJavaTest.AppTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.065 sec
+
+Results :
+
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 1
+```
+

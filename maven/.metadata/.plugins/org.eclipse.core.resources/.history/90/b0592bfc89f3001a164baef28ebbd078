@@ -1,0 +1,54 @@
+package com.goden.MyJavaTest;
+
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Ignore;
+import org.junit.Test;
+
+public class AppTest {
+	
+	private static ICalculator calculator;
+
+	@Before
+	public void setUp() throws Exception {
+		calculator = new Calculator();
+	}
+
+	@After
+	public void tearDown() throws Exception {
+	}
+
+	@Test
+	public void testSum() {
+		int result = calculator.sum(6, 4);
+		assertEquals(10, result);
+	}
+	
+	@Test
+	public void testSubstract() {
+		int result = calculator.subtract(6, 3);
+		assertTrue(result == 3);
+	}
+	
+	@Test
+	public void testMultiply() {
+		int result = calculator.multiply(2, 4);
+		assertTrue(result == 8);
+	}
+	
+	@Test(expected = ArithmeticException.class)
+	public void testDivide() throws Exception{
+		calculator.divide(10, 0);
+	}
+	
+	@Ignore
+	@Test
+	public void testEqualFloats() {
+		boolean result = calculator.equalFloats(0.1f, 0.2f);
+		assertFalse(result);
+		
+	}
+
+}
